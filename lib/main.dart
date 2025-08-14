@@ -81,11 +81,11 @@ class MyApp extends StatelessWidget {
       onBackground: const Color(0xFF0D141C),
       surface: Colors.white,
       onSurface: const Color(0xFF0D141C),
-      surfaceVariant: Colors.white,
+      surfaceVariant: const Color(0xFFEFF4FA),
       onSurfaceVariant: const Color(0xFF5F7FA1),
-      outline: Colors.white,
+      outline: const Color(0xFFE2ECF9),
       shadow: Colors.black.withOpacity(0.1),
-      tertiary: Colors.white, // search field bg
+      tertiary: const Color(0xFFE9F0FA), // search field bg
       onTertiary: const Color(0xFF7FA2C4), // search placeholder
     );
 

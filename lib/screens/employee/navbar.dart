@@ -1,3 +1,5 @@
+import 'dart:ui';
+
 import 'package:e_management/screens/employee/new_employee_dashboard.dart';
 import 'package:e_management/screens/employee/settingpage.dart';
 import 'package:flutter/material.dart';
@@ -83,50 +85,58 @@ class BottomNavBar extends StatelessWidget {
   Widget build(BuildContext context) {
     final cs = Theme.of(context).colorScheme;
 
-    final selectedColor = cs.onSurface; // active icon/text
-    final unselectedColor = cs.onSurfaceVariant; // inactive icon/text
+    final selectedColor = cs.onSurface;
+    final unselectedColor = cs.onSurfaceVariant;
 
     return SafeArea(
       top: false,
-      child: Container(
-        decoration: BoxDecoration(
-          color: cs.surface, // navbar background
-          border: Border(
-            top: BorderSide(color: cs.outline, width: 1), // top border
+      child: ClipRRect(
+        child: BackdropFilter(
+          filter:
+              ImageFilter.blur(sigmaX: 5, sigmaY: 5), // Strong transparent blur
+          child: Container(
+            decoration: BoxDecoration(
+              color: Colors.transparent, // fully transparent background
+              border: Border(
+                top: BorderSide(
+                    color: cs.outline.withOpacity(0.2),
+                    width: 1), // subtle border
+              ),
+            ),
+            padding: const EdgeInsets.only(top: 8, bottom: 10),
+            child: Row(
+              mainAxisAlignment: MainAxisAlignment.spaceEvenly,
+              children: [
+                _NavItem(
+                  label: 'Home',
+                  selected: current == 0,
+                  filled: Icons.home_rounded,
+                  outlined: Icons.home_outlined,
+                  onTap: () => onChanged(0),
+                  selectedColor: selectedColor,
+                  unselectedColor: unselectedColor,
+                ),
+                _NavItem(
+                  label: 'Documents',
+                  selected: current == 1,
+                  filled: Icons.insert_drive_file_rounded,
+                  outlined: Icons.insert_drive_file_outlined,
+                  onTap: () => onChanged(1),
+                  selectedColor: selectedColor,
+                  unselectedColor: unselectedColor,
+                ),
+                _NavItem(
+                  label: 'Settings',
+                  selected: current == 2,
+                  filled: Icons.settings_rounded,
+                  outlined: Icons.settings_outlined,
+                  onTap: () => onChanged(2),
+                  selectedColor: selectedColor,
+                  unselectedColor: unselectedColor,
+                ),
+              ],
+            ),
           ),
-        ),
-        padding: const EdgeInsets.only(top: 8, bottom: 10),
-        child: Row(
-          mainAxisAlignment: MainAxisAlignment.spaceEvenly,
-          children: [
-            _NavItem(
-              label: 'Home',
-              selected: current == 0,
-              filled: Icons.home_rounded,
-              outlined: Icons.home_outlined,
-              onTap: () => onChanged(0),
-              selectedColor: selectedColor,
-              unselectedColor: unselectedColor,
-            ),
-            _NavItem(
-              label: 'Documents',
-              selected: current == 1,
-              filled: Icons.insert_drive_file_rounded,
-              outlined: Icons.insert_drive_file_outlined,
-              onTap: () => onChanged(1),
-              selectedColor: selectedColor,
-              unselectedColor: unselectedColor,
-            ),
-            _NavItem(
-              label: 'Settings',
-              selected: current == 2,
-              filled: Icons.settings_rounded,
-              outlined: Icons.settings_outlined,
-              onTap: () => onChanged(2),
-              selectedColor: selectedColor,
-              unselectedColor: unselectedColor,
-            ),
-          ],
         ),
       ),
     );

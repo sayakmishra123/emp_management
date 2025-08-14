@@ -312,6 +312,7 @@ class _CalendarTable extends StatelessWidget {
       decoration: BoxDecoration(
         color: cs.surface,
         borderRadius: BorderRadius.circular(16),
+        border: Border.all(color: cs.outline),
         boxShadow: [
           BoxShadow(
             color: cs.shadow.withOpacity(0.07),
@@ -581,6 +582,7 @@ class _TaskCard extends StatelessWidget {
         decoration: BoxDecoration(
           color: cs.surface,
           borderRadius: BorderRadius.circular(16),
+          border: Border.all(color: cs.outline),
           boxShadow: [
             BoxShadow(
               color: cs.shadow.withOpacity(0.08),
