@@ -1,0 +1,29 @@
+{
+  "project_info": {
+    "project_number": "991782044935",
+    "project_id": "emanagement-3a7b8",
+    "storage_bucket": "emanagement-3a7b8.firebasestorage.app"
+  },
+  "client": [
+    {
+      "client_info": {
+        "mobilesdk_app_id": "1:991782044935:android:9fd47a45fb6f3077fa71a2",
+        "android_client_info": {
+          "package_name": "com.example.e_management"
+        }
+      },
+      "oauth_client": [],
+      "api_key": [
+        {
+          "current_key": "AIzaSyAaAvhe5zICZeTiP9PM3UxkJAxTJinInbA"
+        }
+      ],
+      "services": {
+        "appinvite_service": {
+          "other_platform_oauth_client": []
+        }
+      }
+    }
+  ],
+  "configuration_version": "1"
+}
